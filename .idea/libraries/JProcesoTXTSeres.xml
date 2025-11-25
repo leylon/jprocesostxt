@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="JProcesoTXTSeres">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/JProcesoTXTSeres.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
