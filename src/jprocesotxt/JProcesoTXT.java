@@ -21,7 +21,7 @@ public class JProcesoTXT {
         String env_bd = "";
         if (args.length > 0) {
             int i = 0;
-            env_bd = args[0];
+            env_bd = "firebird";
             do {
                 /*Empieza proceso de FacturaciÃ³n ElectrÃ³nica*/
                 ProcesaConsultas.ejecutar(env_bd); // Generar Archivo TXT y enviado 

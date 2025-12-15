@@ -63,7 +63,12 @@ public class SqlDinamicoLogic {
             rs = sqlDAO.getResultSetSql(sql);
             sTM = new ScrollableTableModel(rs);
             //Finalizar la transaccion
-            sqlca.commit();
+            if(!sql.contains("select")){
+                sqlca.commit();
+            }else{
+                System.out.println("sin commit...");
+            }
+            //sqlca.commit();
             return sTM;
         } catch (Exception e){
             sqlca.rollback();

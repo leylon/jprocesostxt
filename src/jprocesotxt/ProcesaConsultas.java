@@ -115,9 +115,10 @@ public class ProcesaConsultas {
                         " PVT.TIPO_DOCUMENTO = AV.TIPO_DOC and PVT.NRO_SERIE = AV.SERIE_DOC and PVT.TIPO_FORMATO = 'D')\n" +
                         "inner join PUB_EMPRESAS PEMP on (PEMP.CODEMP = AV.EMPRESA)\n" +
                         "where\n" +
-                        "    AV.ESTADO = 'T'\n" +
+                        "    AV.ESTADO = 'A'\n" +
                         "    and AV.IND_TXT in ('0', '2') -- Condición simple y optimizable\n" +
                         "    and PEMP.E_FACTURA = 1\n" +
+                         "    and AV.SERIE_DOC = 'F013'\n" +
                         "-- Aquí forzamos el plan, empezando por la tabla AV y usando el índice correcto\n" +
                         "PLAN JOIN (AV INDEX (ANT_VENTAS_DIARIAS_IDX10), PT INDEX(PK_PUB_TABLA_PARAMETROS), PVT INDEX(PUNTO_VENTA_TD_IDX1), PEMP INDEX(PUB_EMPRESAS_IDX1))\n" +
                         "\n" +

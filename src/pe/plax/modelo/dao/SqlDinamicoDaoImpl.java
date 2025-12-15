@@ -67,7 +67,7 @@ public class SqlDinamicoDaoImpl implements SqlDinamicoDao{
     
     @Override
     public ResultSet getResultSetSql(String sql) throws SQLException {
-        //System.out.println(" *** SQL: " + sql);
+        System.out.println(" *** SQL: " + sql);
         Statement stm = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         rSet = stm.executeQuery(sql);
         return rSet;

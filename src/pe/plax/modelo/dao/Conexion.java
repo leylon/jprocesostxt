@@ -25,10 +25,16 @@ public class Conexion {
         String usuario= "sysdba";
         String clave = "serverbd";*/
         if (gestor!=null) {
+              String bd_url = System.getenv("DB_URL");
+        String bd_user = System.getenv("DB_USER");
+        String bd_password = System.getenv("DB_PASSWORD");
+        gestor = "firebird";
+        
+
             ResourceBundle resource = ResourceBundle.getBundle("pe.plax.modelo.dao."+gestor);
-            String url = resource.getString("url");
-            String usuario= resource.getString("usuario");
-            String clave = resource.getString("clave");
+            String url =bd_url; //resource.getString("url");
+            String usuario= bd_user; //resource.getString("usuario");
+            String clave = bd_password;// resource.getString("clave");
             /*if (gestor.equals("oracle")){
                 DriverManager.registerDriver (new oracle.jdbc.driver.OracleDriver());
             }*/
@@ -39,7 +45,7 @@ public class Conexion {
                 Class.forName("org.firebirdsql.jdbc.FBDriver").newInstance();
             }
             con = DriverManager.getConnection(url,usuario,clave);
-            //System.out.println("Conexion a la BD OK.");
+            System.out.println("Conexion a la BD OK.");
             return con;
         }
         else{
